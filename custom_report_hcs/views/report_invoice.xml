@@ -20,6 +20,8 @@
           <t t-raw="0" />
         </div>
       </xpath>
+      <!-- footer -->
+      <xpath expr="//div[contains(@t-attf-class, 'footer')]/div/ul" position="replace" />
     </template>
     <template id="external_layout_background" inherit_id="web.external_layout_background">
       <!-- header -->
@@ -36,9 +38,7 @@
         </div>
       </xpath>
       <!-- footer -->
-      <xpath expr="//div[contains(@t-attf-class, 'footer')]" position="replace">
-        <t t-call="l10n_ar_afipws_fe.afip_footer" />
-      </xpath>
+      <xpath expr="//div[contains(@t-attf-class, 'footer')]/div/ul" position="replace" />
     </template>
     <template id="external_layout_boxed" inherit_id="web.external_layout_boxed">
       <!-- header -->
@@ -54,6 +54,8 @@
           <t t-raw="0" />
         </div>
       </xpath>
+      <!-- footer -->
+      <xpath expr="//div[contains(@t-attf-class, 'footer')]/div/ul" position="replace" />
     </template>
     <template id="external_layout_clean" inherit_id="web.external_layout_clean">
       <!-- header -->
@@ -69,6 +71,10 @@
           <t t-raw="0" />
         </div>
       </xpath>
+      <!-- footer -->
+      <xpath expr="//div[contains(@t-attf-class, 'footer')]/div/div[1]" position="replace" />
+      <xpath expr="//div[contains(@t-attf-class, 'footer')]/div/div[1]" position="replace" />
+      <xpath expr="//div[contains(@t-attf-class, 'footer')]/div/div[1]" position="replace" />
     </template>
   </data>
 </odoo>
