@@ -94,20 +94,22 @@
           </div>
         </div>
       </div>
-      <div t-attf-class="header o_company_#{company.id}_layout" t-if="o._name == 'sale.order'">
+      <div t-attf-class="header o_company_#{company.id}_layout" t-if="o._name == 'sale.order' or o._name == 'account.payment.group'">
         <div class="row pb-2" style="border-bottom: 1px solid black">
           <div class="col-8">
-            <h2 class="py-2 text-uppercase"> Presupuesto <span t-field="o.name" /></h2>
+            <h2 class="py-2 text-uppercase" t-if="o._name == 'sale.order'">Presupuesto <span t-field="o.name"/></h2>
+            <h2 class="py-2 text-uppercase" t-if="o._name == 'account.payment.group'" t-field="o.name" />
           </div>
           <div class="col-4 text-right" t-if="company.logo">
-            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-width: 100%;" alt="Logo" />
+            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-width: 100%;" alt="Logo"/>
           </div>
           <div class="col-4 text-right" t-else="">
-            <h2 class="py-2 text-uppercase" t-field="company.name" />
+            <h2 class="py-2 text-uppercase" t-field="company.name"/>
           </div>
         </div>
         <div class="w-100 text-right py-2">
-          <p><b>Fecha de cotizaciÃ³n</b>: <span class="ml-1" t-field="o.date_order" /></p>
+          <p t-if="o._name == 'sale.order'"><b>Fecha de cotización</b>: <span class="ml-1" t-field="o.date_order"/></p>
+          <p t-if="o._name == 'account.payment.group'"><b>Fecha de pago</b>: <span class="ml-1" t-field="o.payment_date"/></p>
         </div>
       </div>
     </template>
