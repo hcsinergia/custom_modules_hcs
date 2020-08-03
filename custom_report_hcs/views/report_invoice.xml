@@ -14,9 +14,8 @@
       <!-- article -->
       <xpath expr="//div[contains(@t-attf-class, 'article')]" position="replace">
         <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
-          <t t-if="o._name == 'account.move'">
-            <div style="height: 300px" t-if="report_type == 'pdf'" />
-          </t>
+          <div t-if="o._name == 'account.move' and report_type == 'pdf'" style="height: 300px"/>
+          <div t-if="o._name == 'account.payment.group' and report_type == 'pdf'" style="height: 100px"/>
           <t t-raw="0" />
         </div>
       </xpath>
@@ -31,9 +30,8 @@
       <!-- article -->
       <xpath expr="//div[contains(@t-attf-class, 'article')]" position="replace">
         <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
-          <t t-if="o._name == 'account.move'">
-            <div style="height: 300px" t-if="report_type == 'pdf'" />
-          </t>
+          <div t-if="o._name == 'account.move' and report_type == 'pdf'" style="height: 300px"/>
+          <div t-if="o._name == 'account.payment.group' and report_type == 'pdf'" style="height: 100px"/>
           <t t-raw="0" />
         </div>
       </xpath>
@@ -48,9 +46,8 @@
       <!-- article -->
       <xpath expr="//div[contains(@t-attf-class, 'article')]" position="replace">
         <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
-          <t t-if="o._name == 'account.move'">
-            <div style="height: 300px" t-if="report_type == 'pdf'" />
-          </t>
+          <div t-if="o._name == 'account.move' and report_type == 'pdf'" style="height: 300px"/>
+          <div t-if="o._name == 'account.payment.group' and report_type == 'pdf'" style="height: 100px"/>
           <t t-raw="0" />
         </div>
       </xpath>
@@ -65,9 +62,8 @@
       <!-- article -->
       <xpath expr="//div[contains(@t-attf-class, 'article')]" position="replace">
         <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
-          <t t-if="o._name == 'account.move'">
-            <div style="height: 300px" t-if="report_type == 'pdf'" />
-          </t>
+          <div t-if="o._name == 'account.move' and report_type == 'pdf'" style="height: 300px"/>
+          <div t-if="o._name == 'account.payment.group' and report_type == 'pdf'" style="height: 100px"/>
           <t t-raw="0" />
         </div>
       </xpath>
