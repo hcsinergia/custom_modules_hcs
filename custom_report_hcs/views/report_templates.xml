@@ -1,27 +1,29 @@
-<?xml version="1.0"?>
-<t name="hcs report header" t-name="custom_report_hcs.hcs_report_header">
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="hcs_report_header" name="hcs report header">
       <div t-attf-class="header o_company_#{company.id}_layout border border-dark" t-if="o._name == 'account.move' or o._name == 'account.payment.group'">
-        <t t-set="smallclass" t-value="('row m-0 p-1 small' if report_type == 'html' else 'row m-0 p-1')"/>
+        <t t-set="smallclass" t-value="('row m-0 p-1 small' if report_type == 'html' else 'row m-0 p-1')" />
         <div class="row">
           <div class="col-5 text-center" t-if="company.logo">
-            <img class="m-4" t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-width: 100%;" alt="Logo"/>
+            <img class="m-4" t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-width: 100%;" alt="Logo" />
           </div>
           <div class="col-5 text-center" t-else="">
-            <h2 class="p-4 text-uppercase" t-field="company.name"/>
+            <h2 class="p-4 text-uppercase" t-field="company.name" />
           </div>
           <div class="col-2">
             <div class="card text-center" style="margin:0px;border-radius: 0;border: 1px solid black;">
               <div class="card-header" style="font-size: 48px;padding:0px;border-bottom: 1px solid;">
-                <span t-if="'l10n_latam_document_type_id' in o and o.l10n_latam_document_type_id.report_name and o.l10n_latam_document_type_id.report_name" t-field="o.l10n_latam_document_type_id.l10n_ar_letter"/>
+                <span t-if="'l10n_latam_document_type_id' in o and o.l10n_latam_document_type_id.report_name and o.l10n_latam_document_type_id.report_name" t-field="o.l10n_latam_document_type_id.l10n_ar_letter" />
                 <span t-else="">X</span>
               </div>
               <div class="card-body" style="height: 20px;padding:0px;">
-                COD.<span t-if="'l10n_latam_document_type_id' in o and o.l10n_latam_document_type_id.report_name and o.l10n_latam_document_type_id.report_name" t-field="o.l10n_latam_document_type_id.code"/><span t-else="">X</span>
+                COD.<span t-if="'l10n_latam_document_type_id' in o and o.l10n_latam_document_type_id.report_name and o.l10n_latam_document_type_id.report_name" t-field="o.l10n_latam_document_type_id.code" /><span t-else="">X</span>
               </div>
             </div>
           </div>
           <div class="col-5 text-center">
-            <h2 class="p-4 text-uppercase" t-if="o._name != 'account.payment.group'" t-field="o.l10n_latam_document_type_id.report_name"/>
+            <h2 class="p-4 text-uppercase" t-if="o._name != 'account.payment.group'" t-field="o.l10n_latam_document_type_id.report_name" />
             <h2 class="p-4 text-uppercase" t-if="o._name == 'account.payment.group'">Recibo</h2>
           </div>
         </div>
@@ -29,73 +31,73 @@
           <div class="col-6 px-4">
             <div class="d-flex">
               <b>Razón social</b>:
-              <p class="ml-1" t-field="company.name"/>
+              <p class="ml-1" t-field="company.name" />
             </div>
             <div class="d-flex">
-              <b>Domicilio</b>: <p class="ml-1"><span t-field="company.street"/><span t-if="company.street2"> - </span><span t-field="company.street2"/><br/><span t-field="company.city"/>, <span t-field="company.state_id"/> <span t-field="company.zip"/></p>
+              <b>Domicilio</b>: <p class="ml-1"><span t-field="company.street" /><span t-if="company.street2"> - </span><span t-field="company.street2" /><br /><span t-field="company.city" />, <span t-field="company.state_id" /> <span t-field="company.zip" /></p>
             </div>
             <div class="d-flex">
               <b>Condición IVA</b>:
-              <p class="ml-1" t-field="company.l10n_ar_afip_responsibility_type_id"/>
+              <p class="ml-1" t-field="company.l10n_ar_afip_responsibility_type_id" />
             </div>
           </div>
           <div class="col-6 px-4">
             <div class="d-flex">
               <b>Pto. venta - Comp. Nro</b>:
               <t t-if="'l10n_latam_document_number' in o">
-                <p class="ml-1" t-if="o.l10n_latam_document_number" t-field="o.l10n_latam_document_number"/>
+                <p class="ml-1" t-if="o.l10n_latam_document_number" t-field="o.l10n_latam_document_number" />
                 <p class="ml-1" t-else="">Sin número</p>
               </t>
-              <p t-else="" class="ml-1" t-field="o.display_name"/>
+              <p t-else="" class="ml-1" t-field="o.display_name" />
             </div>
             <div class="d-flex" t-if="'invoice_date' in o">
-              <b>Fecha de emisión</b>: <span class="ml-1" t-field="o.invoice_date"/>
+              <b>Fecha de emisión</b>: <span class="ml-1" t-field="o.invoice_date" />
             </div>
             <div class="d-flex">
-              <b>CUIT</b>: <span class="ml-1" t-field="company.vat"/>
+              <b>CUIT</b>: <span class="ml-1" t-field="company.vat" />
             </div>
             <div class="d-flex">
-              <b>Ingresos brutos</b>: <span class="ml-1" t-field="company.l10n_ar_gross_income_number"/>
+              <b>Ingresos brutos</b>: <span class="ml-1" t-field="company.l10n_ar_gross_income_number" />
             </div>
             <div class="d-flex">
-              <b>Fecha de inicio de actividades</b>: <span class="ml-1" t-field="company.l10n_ar_afip_start_date"/>
+              <b>Fecha de inicio de actividades</b>: <span class="ml-1" t-field="company.l10n_ar_afip_start_date" />
             </div>
           </div>
         </div>
         <div t-att-class="smallclass" style="border-top: 1px solid black" t-if="'l10n_ar_afip_service_start' in o or 'l10n_ar_afip_service_end' in o or 'invoice_date_due' in o">
           <div class="col-4">
-            <p><b>Facturado desde</b>: <span t-field="o.l10n_ar_afip_service_start"/></p>
+            <p><b>Facturado desde</b>: <span t-field="o.l10n_ar_afip_service_start" /></p>
           </div>
           <div class="col-4">
-            <p><b>Hasta</b>: <span t-field="o.l10n_ar_afip_service_end"/></p>
+            <p><b>Hasta</b>: <span t-field="o.l10n_ar_afip_service_end" /></p>
           </div>
           <div class="col-4">
-            <p><b>Vto. del pago</b>: <span t-field="o.invoice_date_due"/></p>
+            <p><b>Vto. del pago</b>: <span t-field="o.invoice_date_due" /></p>
           </div>
         </div>
         <div t-att-class="smallclass" style="border-top: 1px solid black">
           <div class="col-5">
             <div class="d-flex">
-              <b>CUIT</b>: <span class="ml-1" t-field="o.partner_id.vat"/>
+              <b>CUIT</b>: <span class="ml-1" t-field="o.partner_id.vat" />
             </div>
             <div class="d-inline-block w-100">
-              <b>Condición IVA</b>: <p class="ml-1"><span t-field="o.partner_id.l10n_ar_afip_responsibility_type_id"/></p>
+              <b>Condición IVA</b>: <p class="ml-1"><span t-field="o.partner_id.l10n_ar_afip_responsibility_type_id" /></p>
             </div>
             <div class="d-flex" t-if="o._name == 'account.payment.group'">
-              <b>Fecha de pago</b>: <span class="ml-1" t-field="o.payment_date"/>
+              <b>Fecha de pago</b>: <span class="ml-1" t-field="o.payment_date" />
             </div>
           </div>
           <div class="col-7">
             <div class="d-inline-block w-100">
               <t t-if="o.partner_id.company_type == 'person'">
-                <b>Apellido y Nombre</b>: <p class="ml-1"><span t-if="o._name != 'account.payment.group'" t-field="o.partner_id.id_parent"/><span t-if="o._name == 'account.payment.group'" t-field="o.partner_id"/></p>
+                <b>Apellido y Nombre</b>: <p class="ml-1"><span t-if="o._name != 'account.payment.group'" t-field="o.partner_id.id_parent" /><span t-if="o._name == 'account.payment.group'" t-field="o.partner_id" /></p>
               </t>
               <t t-if="o.partner_id.company_type == 'company'">
-                <b>Razón social</b>: <p class="ml-1"><span t-field="o.partner_id.name"/></p>
+                <b>Razón social</b>: <p class="ml-1"><span t-field="o.partner_id.name" /></p>
               </t>
             </div>
             <div class="d-flex">
-              <b>Domicilio</b>: <p class="ml-1"><span t-field="o.partner_id.street"/><span t-if="o.partner_id.street2"> - </span><span t-field="o.partner_id.street2"/><br/><span t-field="o.partner_id.city"/>, <span t-field="o.partner_id.state_id"/> <span t-field="o.partner_id.zip"/></p>
+              <b>Domicilio</b>: <p class="ml-1"><span t-field="o.partner_id.street" /><span t-if="o.partner_id.street2"> - </span><span t-field="o.partner_id.street2" /><br /><span t-field="o.partner_id.city" />, <span t-field="o.partner_id.state_id" /> <span t-field="o.partner_id.zip" /></p>
             </div>
           </div>
         </div>
@@ -103,19 +105,21 @@
       <div t-attf-class="header o_company_#{company.id}_layout" t-if="o._name == 'sale.order'">
         <div class="row pb-2" style="border-bottom: 1px solid black">
           <div class="col-8">
-            <h2 class="py-2 text-uppercase" t-if="o._name == 'sale.order'">Presupuesto <span t-field="o.name"/></h2>
+            <h2 class="py-2 text-uppercase" t-if="o._name == 'sale.order'">Presupuesto <span t-field="o.name" /></h2>
             <h2 class="py-2 text-uppercase" t-if="o._name == 'account.payment.group'" t-field="o.name" />
           </div>
           <div class="col-4 text-right" t-if="company.logo">
-            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-width: 100%;" alt="Logo"/>
+            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-width: 100%;" alt="Logo" />
           </div>
           <div class="col-4 text-right" t-else="">
-            <h2 class="py-2 text-uppercase" t-field="company.name"/>
+            <h2 class="py-2 text-uppercase" t-field="company.name" />
           </div>
         </div>
         <div class="w-100 text-right py-2">
-          <p t-if="o._name == 'sale.order'"><b>Fecha de cotización</b>: <span class="ml-1" t-field="o.date_order"/></p>
-          <p t-if="o._name == 'account.payment.group'"><b>Fecha de pago</b>: <span class="ml-1" t-field="o.payment_date"/></p>
+          <p t-if="o._name == 'sale.order'"><b>Fecha de cotización</b>: <span class="ml-1" t-field="o.date_order" /></p>
+          <p t-if="o._name == 'account.payment.group'"><b>Fecha de pago</b>: <span class="ml-1" t-field="o.payment_date" /></p>
         </div>
       </div>
-    </t>
+    </template>
+  </data>
+</odoo>
